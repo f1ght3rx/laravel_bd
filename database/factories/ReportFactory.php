@@ -13,7 +13,7 @@ class ReportFactory extends Factory
         $faker = \Faker\Factory::create();
         return [
             'number' => $faker->numerify('aaa-###'),
-            'desciption'=> $faker->paragraph,
+            'description'=> $faker->paragraph,
             'created_at' => $faker->dateTimeBetween('-1 Week','now'),
             'status_id' => 1
         ];
