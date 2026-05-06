@@ -10,6 +10,7 @@
             <h1>НАРУШЕНИЙ.НЕТ</h1>
         </div>
     </header>
+    <x-app-layout>
     <form action="{{route('reports.store')}}" method="post">
         @csrf
         <input type="text" name = "number" placeholder="номер авто">
@@ -18,5 +19,6 @@
         <br>
         <button type="submit">Создать заявление</button>
     </form>
+    </x-app-layout>
 </body>
 </html>

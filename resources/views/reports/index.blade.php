@@ -7,6 +7,7 @@
 </head>
 <body>
     <h1>Список заявок</h1>
+    <x-app-layout>
     <div>
     <span>Сортировка по дате создания: </span>
     <a href="{{ route('report.index', ['sort' => 'desc', 'status' => $status]) }}">
@@ -50,5 +51,6 @@
             </div>    
         @endforeach
         {{ $reports->links() }}
+    </x-app-layout>    
 </body>
 </html>

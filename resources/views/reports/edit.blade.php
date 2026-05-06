@@ -10,6 +10,7 @@
             <h1>НАРУШЕНИЙ.НЕТ</h1>
         </div>
     </header>
+    <x-app-layout>
     <form action="{{route('reports.update', $report->id)}}" method="post">
         @csrf
         @method('put')
@@ -19,5 +20,6 @@
         <br>
         <button type="submit">Обновить заявление</button>
     </form>
+    </x-app-layout>
 </body>
 </html>
