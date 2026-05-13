@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Страница авторизации | НАРУШЕНИЙ.NET</title>
 </head>
+<x-guest-layout>
 <body>
     <h1>НАРУШЕНИЙ.NET</h1>
     <p>Страница авторизации</p>
@@ -23,4 +24,5 @@
         <button type="button">ЗАРЕГИСТРИРОВАТЬСЯ</button>
     </form>
 </body>
+</x-guest-layout>
 </html>

@@ -6,29 +6,8 @@
     <title>НАРУШЕНИЙ.NET</title>
 </head>
 <body>
-    <h1>Список заявок</h1>
     <x-app-layout>
-    <div>
-    <span>Сортировка по дате создания: </span>
-    <a href="{{ route('report.index', ['sort' => 'desc', 'status' => $status]) }}">
-        сначала новые
-    </a>
-    <a href="{{ route('report.index', ['sort' => 'asc', 'status' => $status]) }}">
-        сначала старые
-    </a>
-</div>
-<div>
-    <p>Фильтрация по статусу заявки</p>
-    <ul>
-        @foreach($statuses as $status)
-            <li>
-                <a href="{{route('report.index', ['sort' => $sort, 'status' => $status->id])}}">
-                    {{$status->name}}
-                </a>
-            </li>
-        @endforeach
-    </ul>
-</div>
+    <x-filter :sort=$sort :status=$status></x-filter>
         <a href="{{url('reports/create')}}"><button>Создать заявку</button></a>
         @foreach ($reports as $report)
             <li>
@@ -36,6 +15,9 @@
                 <strong>Описание:</strong> {{ $report->description }}<br>
                 <strong>Создан:</strong> {{ $report->created_at }}<br>
                 <strong>Статус:</strong> {{ $report->status->name }}<br>
+                <x-status :type="$report->status->id">
+                    {{ $report->status->name }}
+                </x-status>
             </li>
 
             <div>
