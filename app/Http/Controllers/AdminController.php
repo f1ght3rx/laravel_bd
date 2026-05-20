@@ -11,6 +11,6 @@ class AdminController extends Controller
     public function index(){
         $reports = Report::all();
         $statuses = Status::all();
-        return view('admin.index', compact('reports', 'statuses'));
+        return back()->with('success', 'Статус заявления обновлён.');
     }
 }

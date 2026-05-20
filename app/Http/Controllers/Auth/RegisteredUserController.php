@@ -34,10 +34,12 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'middlename' => ['required', 'string', 'max:255'],
             'lastname' => ['required', 'string', 'max:255'],
-            'tel' => ['required', 'string', 'max:255'],
-            'login' => ['required', 'string', 'max:255', 'unique:'.User::class],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+            'tel' => ['required', 'regex:/^\+7\s\(\d{3}\)\s\d{3}-\d{2}-\d{2}$/'],
+            'login' => ['required', 'string', 'max:255', 'unique:' . User::class],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        ], [
+            'tel.regex' => 'Телефон должен быть в формате: +7 (999) 999-99-99',
         ]);
 
         $user = User::create([
@@ -49,7 +51,6 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-        
 
         event(new Registered($user));
 

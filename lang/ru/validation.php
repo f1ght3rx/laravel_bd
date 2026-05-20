@@ -164,6 +164,15 @@ return [
         ],
     ],
 
-    'attributes' => [],
+    'attributes' => [
+        'name' => 'имя',
+        'middlename' => 'отчество',
+        'lastname' => 'фамилия',
+        'email' => 'эл. почта',
+        'login' => 'логин',
+        'tel' => 'телефон',
+        'password' => 'пароль',
+        'password_confirmation' => 'подтверждение пароля',
+    ],
 
 ];
