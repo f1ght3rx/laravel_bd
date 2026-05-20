@@ -5,11 +5,6 @@
     <title>Обновление заявления</title>
 </head>
 <body>
-    <header>
-        <div>
-            <h1>НАРУШЕНИЙ.НЕТ</h1>
-        </div>
-    </header>
     <x-app-layout>
     <form action="{{route('reports.update', $report->id)}}" method="post">
         @csrf
