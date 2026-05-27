@@ -8,9 +8,11 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $reports = Report::all();
         $statuses = Status::all();
-        return back()->with('success', 'Статус заявления обновлён.');
+
+        return view('admin.index', compact('reports', 'statuses'));
     }
 }

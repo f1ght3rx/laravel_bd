@@ -19,6 +19,10 @@
                                 <span class="text-red-500 font-bold text-lg">
                                     {{ \Carbon\Carbon::parse($report->created_at)->translatedFormat('j F Y H:i') }}
                                 </span>
+                                
+                                @isset($report->path_img)
+                                    <img src="{{ Storage::url($report->path_img) }}" class="contact-block__img" alt="">
+                                @endisset
 
                                 <div class="flex items-center gap-3 text-slate-700">
                                     <a href="{{ route('reports.edit', $report->id) }}" class="hover:text-blue-600 transition-colors" title="Редактировать">

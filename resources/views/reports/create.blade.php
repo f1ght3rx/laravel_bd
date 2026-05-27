@@ -9,7 +9,7 @@
         <div class="max-w-2xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 shadow-sm sm:rounded-lg border border-gray-100 dark:border-gray-700">
                 <div class="p-6 text-black/60 dark:text-white/60">
-                    <form action="{{ route('reports.store') }}" method="POST" class="space-y-4">
+                    <form action="{{ route('reports.store') }}" method="POST" class="space-y-4" enctype="multipart/form-data">
                         @csrf
 
                         <div>
@@ -40,7 +40,12 @@
                                 required
                             >{{ old('description') }}</textarea>
                         </div>
-
+                        <!-- File -->
+                        <div>
+                            <x-input-label for="path_img" :value="__('Номер автомобиля')" />
+                            <x-text-input id="path_img" class="block mt-1 border-black bg-white text-black focus:border-black focus:ring-black" type="file" name="path_img" required/>
+                            <x-input-error :messages="$errors->get('path_img')" class="mt-2" />
+                        </div>
                         <button
                             type="submit"
                             class="inline-flex items-center rounded-md bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-700 transition"
