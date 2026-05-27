@@ -1,4 +1,3 @@
-{{-- resources/views/layouts/flash-messages.blade.php --}}
 <div class="space-y-3" x-data="{ show: true }" x-init="setTimeout(() => show = false, 4000)">
     @if (session('success'))
         <div
